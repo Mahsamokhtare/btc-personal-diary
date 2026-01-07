@@ -29,11 +29,11 @@ export const Dialog = forwardRef(function Dialog({ onClose }, ref) {
             Add new Entry
           </p>
           <button onClick={onClose} className="text-lg hover:text-gray-600">
-            <i className="fa-solid fa-xmark text-2xl text-gray-400"></i>
+            <i className="cursor-pointer fa-solid fa-xmark text-2xl text-gray-400"></i>
           </button>
         </header>
         <div className="flex-1 overflow-y-auto p-10">
-          <DiaryForm></DiaryForm>
+          <DiaryForm onClose={onClose}></DiaryForm>
         </div>
       </div>
     </dialog>
