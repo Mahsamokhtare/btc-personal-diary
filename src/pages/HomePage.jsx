@@ -24,25 +24,33 @@ export const HomePage = () => {
   return (
     <div className="bg-[#faf3ff] h-screen">
       <section className="max-w-7xl py-4 px-4 lg:px-8 mx-auto">
-        <h1 className="inline-block bg-gradient-to-r from-blue-500 to-purple-600 bg-clip-text text-transparent text-center text-2xl font-bold pb-1 pt-3 sm:text-left  sm:text-5xl ">
-          My Diary
-          <i className="fa-solid fa-star pl-3 text-2xl"></i>
-        </h1>
+        <header className="flex  justify-between pb-16">
+          <div className="flex items-center">
+            <div className="px-4 py-4 rounded-xl bg-gradient-to-r from-blue-500 to-purple-600 ">
+              <i class="fa-solid fa-book-open text-white text-2xl"></i>
+            </div>
+            <div className="pl-3">
+              <h1 className=" bg-gradient-to-r from-blue-500 to-purple-600 bg-clip-text text-transparent text-center text-2xl font-bold pb-1 pt-3 sm:text-left  sm:text-5xl ">
+                My Diary
+              </h1>
+              <p className="text-center sm:text-left">
+                Capture your daily moments and memories
+              </p>
+            </div>
+          </div>
+          <div className=" text-center  sm:flex items-center justify-between">
+            <AddDiaryEntryButton
+              openDialog={openDialog}
+              entry={"Add new Entry"}
+            />
+            <FormDialog
+              ref={dialogRef}
+              onClose={closeDialog}
+              onAddEntry={addEntry}
+            />
+          </div>
+        </header>
 
-        <div className=" text-center  sm:flex items-center justify-between mb-8">
-          <p className="text-center sm:text-left">
-            Capture your daily moments and memories
-          </p>
-          <AddDiaryEntryButton
-            openDialog={openDialog}
-            entry={"Add new Entry"}
-          />
-          <FormDialog
-            ref={dialogRef}
-            onClose={closeDialog}
-            onAddEntry={addEntry}
-          />
-        </div>
         {entries.length === 0 ? (
           // 1. SHOW THIS IF EMPTY
           <div className="flex items-center justify-center mt-10">
@@ -62,7 +70,7 @@ export const HomePage = () => {
           </div>
         ) : (
           // 2. SHOW THIS IF ENTRIES EXIST
-          <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-5">
+          <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-5 ">
             {entries.map((item) => (
               <Card key={item.id} entry={item}></Card>
             ))}

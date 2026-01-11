@@ -12,9 +12,9 @@ export const Card = ({ entry }) => {
   };
   return (
     <>
-      <div className=" bg-white rounded-lg overflow-hidden">
+      <div className="group bg-white rounded-lg overflow-hidden cursor-pointer shadow-md transition-all duration-300 hover:-translate-y-2 hover:shadow-xl">
         <img
-          className="w-full h-56 object-cover"
+          className="w-full h-56 object-cover transition-transform duration-500 group-hover:scale-110"
           src={
             entry.image ||
             "https://ralfvanveen.com/wp-content/uploads/2021/06/Placeholder-_-Glossary.svg"
