@@ -29,7 +29,7 @@ export const FormDialog = forwardRef(function Dialog(
       >
         <div className="w-full h-full flex flex-col">
           <header className="flex justify-between items-center bg-[#f6f4ff] px-10 py-10 ">
-            <p className="inline-block bg-gradient-to-r from-blue-500 to-purple-600 bg-clip-text text-transparent font-semibold text-3xl">
+            <p className="inline-block bg-gradient-to-r from-purple-500 to-purple-600 bg-clip-text text-transparent font-semibold text-3xl">
               Add new Entry
             </p>
             <button onClick={onClose} className="text-lg hover:text-gray-600">

@@ -111,7 +111,7 @@ export const DiaryForm = ({ onClose, onAddEntry }) => {
             type="submit"
             className={`w-1/2 px-4 py-3 rounded-xl  text-white transition-colors ${
               isFormValid
-                ? "cursor-pointer bg-gradient-to-r  from-blue-500 to-purple-600 hover:from-blue-600 hover:to-purple-700"
+                ? "cursor-pointer bg-gradient-to-r  from-purple-500 to-purple-600 hover:from-purple-600 hover:to-purple-700"
                 : "bg-gray-400 cursor-not-allowed "
             }`}
           >

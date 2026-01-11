@@ -26,19 +26,19 @@ export const HomePage = () => {
       <section className="max-w-7xl py-4 px-4 lg:px-8 mx-auto">
         <header className="flex  justify-between pb-16">
           <div className="flex items-center">
-            <div className="px-4 py-4 rounded-xl bg-gradient-to-r from-blue-500 to-purple-600 ">
-              <i class="fa-solid fa-book-open text-white text-2xl"></i>
+            <div className="px-6 py-6 rounded-xl bg-gradient-to-r from-purple-500 to-purple-600 ">
+              <i className="fa-solid fa-book-open text-white text-3xl"></i>
             </div>
             <div className="pl-3">
-              <h1 className=" bg-gradient-to-r from-blue-500 to-purple-600 bg-clip-text text-transparent text-center text-2xl font-bold pb-1 pt-3 sm:text-left  sm:text-5xl ">
+              <h1 className=" bg-gradient-to-r from-purple-500 to-purple-600 bg-clip-text text-transparent text-center text-lg sm:text-6xl font-bold pb-1 pt-3 sm:text-left">
                 My Diary
               </h1>
-              <p className="text-center sm:text-left">
+              <p className="text-gray-600 text-lg text-center sm:text-left">
                 Capture your daily moments and memories
               </p>
             </div>
           </div>
-          <div className=" text-center  sm:flex items-center justify-between">
+          <div className=" text-center   sm:flex items-center justify-between">
             <AddDiaryEntryButton
               openDialog={openDialog}
               entry={"Add new Entry"}
