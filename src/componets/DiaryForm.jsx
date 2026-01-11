@@ -1,7 +1,7 @@
 import { useState } from "react";
 import { Form } from "react-router";
 
-export const DiaryForm = ({ onClose }) => {
+export const DiaryForm = ({ onClose, onAddEntry }) => {
   const [isFormValid, setIsFormValid] = useState(false);
 
   const handleChange = (e) => {
@@ -27,10 +27,9 @@ export const DiaryForm = ({ onClose }) => {
       image: formData.get("image"),
       content: formData.get("content"),
     };
-    console.log(entry);
+    // console.log(entry);
 
-    const existing = JSON.parse(localStorage.getItem("diaryEntries")) || [];
-    localStorage.setItem("diaryEntries", JSON.stringify([...existing, entry]));
+    onAddEntry(entry);
 
     e.target.reset();
     setIsFormValid(false); // disable button after reset
@@ -80,7 +79,6 @@ export const DiaryForm = ({ onClose }) => {
           </label>
           <input
             name="image"
-            type="text"
             placeholder="https://example.com/image.jpg"
             required
             className="w-full px-4 py-5 border-1 border-gray-200 rounded-lg"
