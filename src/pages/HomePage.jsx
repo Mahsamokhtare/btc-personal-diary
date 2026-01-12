@@ -30,7 +30,7 @@ export const HomePage = () => {
               <i className="fa-solid fa-book-open text-white text-3xl"></i>
             </div>
             <div className="pl-3">
-              <h1 className=" bg-gradient-to-r from-purple-500 to-purple-600 bg-clip-text text-transparent text-center text-lg sm:text-6xl font-bold pb-1 pt-3 sm:text-left">
+              <h1 className=" bg-gradient-to-r from-purple-700 to-pink-600 bg-clip-text text-transparent text-center text-lg sm:text-6xl font-bold pb-1 pt-3 sm:text-left">
                 My Diary
               </h1>
               <p className="text-gray-600 text-lg text-center sm:text-left">
@@ -70,7 +70,7 @@ export const HomePage = () => {
           </div>
         ) : (
           // 2. SHOW THIS IF ENTRIES EXIST
-          <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-5 ">
+          <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-x-7 gap-y-5">
             {entries.map((item) => (
               <Card key={item.id} entry={item}></Card>
             ))}
