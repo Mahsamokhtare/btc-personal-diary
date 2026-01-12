@@ -3,10 +3,23 @@ import { Form } from "react-router";
 
 export const DiaryForm = ({ onClose, onAddEntry }) => {
   const [isFormValid, setIsFormValid] = useState(false);
+  const [selectedDate, setIsDatePicked] = useState(false);
 
   const handleChange = (e) => {
     const form = e.target.form;
     const data = new FormData(form);
+    const saved = localStorage.getItem("diaryEntries");
+    const diaryEntries = saved ? JSON.parse(saved) : [];
+
+    // 2. Check if the date exists in the array
+    const dateAlreadyExists = diaryEntries.some(
+      (entry) => entry.date === data.get("date")?.trim()
+    );
+
+    console.log("this is ", dateAlreadyExists);
+
+    // 3. Update the state
+    setIsDatePicked(dateAlreadyExists);
 
     // Check all fields
     const title = data.get("title")?.trim();
@@ -15,7 +28,7 @@ export const DiaryForm = ({ onClose, onAddEntry }) => {
     const content = data.get("content")?.trim();
     console.log(isFormValid);
 
-    setIsFormValid(title && date && image && content);
+    setIsFormValid(title && date && image && content && !dateAlreadyExists);
   };
   const handleSubmit = (e) => {
     e.preventDefault();
@@ -32,7 +45,8 @@ export const DiaryForm = ({ onClose, onAddEntry }) => {
     onAddEntry(entry);
 
     e.target.reset();
-    setIsFormValid(false); // disable button after reset
+    setIsFormValid(false);
+    setIsDatePicked(false);
 
     onClose();
   };
@@ -72,6 +86,14 @@ export const DiaryForm = ({ onClose, onAddEntry }) => {
             onChange={handleChange}
           ></input>
         </div>
+        {selectedDate && (
+          <div className="px-4 py-3 bg-red-100 rounded-lg mb-8 border-1 border-red-900">
+            <p className="text-left text-red-900 ">
+              <i class="fa-solid fa-circle-exclamation text-red-900 pr-3"></i>
+              An entry already exists for this date. Please come back tomorrow!
+            </p>
+          </div>
+        )}
         <div className="pb-5">
           <label className="flex items-center text-gray-700 pl-2 pb-2 text-bold text-lg font-semibold">
             <i className="fa-regular fa-image text-purple-600 pr-3"></i>
